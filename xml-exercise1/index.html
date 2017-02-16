@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple Page</title>
+	<style type="text/css">
+		 h1 {color: red; font:36px Arial;} /* select by tag name */
+
+		 #title {color: green; font:36px Arial;} /* select by id */
+		
+		 p > i { /* select by tags ancestry*/
+		 	font: 32px Arial;
+		 } 
+		 .chang-h1{ /* select by class name */
+		 	color: red;
+		 	font: 16px Arial;
+		 }
+	</style>
+</head>
+<body>
+	<h1 id="title">I will change you!</h1>
+	<p> No way you can<i>change</i> this.</p>
+	<a href="#" class="change-h1">GO!</a>
+	<input id="text"></input>
+	<script type="text/javascript">
+		document.children[0].children[1].children[0].innerHTML= "Change the tough way!";
+		document.querySelector("#title").innerHTML = "Change a bit easier";
+		var x = "Clicked";
+		var id_title = document.querySelector("#title");
+		/*
+		document.querySelector(".change-h1").addEventListener("click",
+			function(){
+				document.querySelector("#title").innerHTML="Change through click!";
+			});
+		*/
+
+		var all = document.querySelectorAll(".change-h1, p, h1");
+		for(i=0; i<all.length; i++){
+			all[i].addEventListener("click", function changeMe(){
+				document.querySelector("#title").innerHTML=document.querySelector("#text").value;
+			});
+		}
+	</script>
+</body>
+</html>
