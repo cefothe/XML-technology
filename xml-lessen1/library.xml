@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Library>
+    <book genre="programming">
+        <booktitle>XML Programming and Databases</booktitle>
+        <author>
+            <first>Tuco</first>
+            <middle>Benedicto</middle>
+            <middle>Pacifico</middle>
+            <middle>van Maria</middle>
+            <last>Ramirez</last>
+        </author>
+        <author>
+            <first>Charley</first>
+            <last>Calvert</last>
+        </author>
+        <ISBN>123-44-3-44-2-6</ISBN>
+        <pages>1023</pages>
+        <price>18.44</price>
+    </book>
+    <cd>
+        <title>Golden Rock Balads</title>
+        <song No="1">
+            <name>aaaa</name>
+            <artist>bbbb</artist>
+        </song>
+    </cd>
+</Library>
