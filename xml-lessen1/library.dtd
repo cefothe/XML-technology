@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!ELEMENT Library((book|cd)+)> <!-- плуса означава не празна итерация, трябва да има поне едно от двете-->
-<!ELEMENT book(booktitile, author+, ISBN, pages,price)> <!-- Показва последователноста, която е строга, като авторите могат да бъдат повече от един -->
-<!ATTLIST book genre CDTA #IMPLIED> <!-- Това е атрибут към book възела, като CDTA (character data), може да е PCDATA, IMPLIED не задължително -->
+        <!ELEMENT book(booktitile, author+, ISBN, pages,price)> <!-- Показва последователноста, която е строга, като авторите могат да бъдат повече от един -->
+        <!ATTLIST book genre CDTA #IMPLIED> <!-- Това е атрибут към book възела, като CDTA (character data), може да е PCDATA, IMPLIED не задължително -->
 <!ELEMENT author((person-title?, first, middle*,lst)|(name))> <!-- ? ако ко има го има само веднъж *-[0-n] ()|() -> пова означава че може и само второто да е възможно -->
 <!ATTLIST song No CDATA @REQUIRED> <!-- @REQUIRED - означава че е задължително -->
+<!ELEMENT ISBN (#PCDATA)>

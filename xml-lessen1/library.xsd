@@ -1,26 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
-        xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:element name="Library">
-        <xs:complexType>
-            <xs:choice maxOccurs="unbounded">
-                <xs:element ref="book" />
-                <xs:element ref="cd" />
+        xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified">
+    <xs:element name="Library"> <!-- Така обзначаваме възел в документа -->
+        <xs:complexType> <!-- представляма комплексен тип -->
+            <xs:choice maxOccurs="unbounded"> <!-- означава избор между едно он двете, вместо choice може да има и sequence -->
+                <xs:element ref="book" /> <!-- book e сложен тип, които те първа трябва да бъде описан, докато не стигнем до прости типове -->
+                <xs:element ref="cd" /> <!--maxOccurs="unbounded" не ограничен брой пъти, ако unbounded в choice -->
             </xs:choice>
         </xs:complexType>
     </xs:element>
-    <xs:element name="book">
+    <xs:element name="book"> <!-- Описание на book -->
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="booktitle" type="xs:string"/>
-                <xs:element ref="author" maxOccurs="5"/>
+                <xs:element name="booktitle" type="xs:string"/> <!-- името на елемента и неговия тип -->
+                <xs:element ref="author" maxOccurs="5"/> <!-- maxOccurs - максимален брой срещания, minOccurs минимален брой срещания, ако липслат означава точно веднъж -->
                 <xs:element name="ISBN" type="xs:string"/>
                 <xs:element name="pages" type="xs:integer"/>
-                <xs:element name="prices" type="xs:decimal" minOccurs="0"/>
+                <xs:element name="prices" type="xs:decimal" minOccurs="0"/> <!-- дава възможност по точно да се прецезират типа на данните -->
             </xs:sequence>
         </xs:complexType>
+        <xs:attribute name="genre" type="xs:string"/> <!-- означава че genre е attribute на book -->
 
     </xs:element>
-
-
+    <xs:element name="person-title">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="Professor"/>
+                <xs:enumeration value="Doctor"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
 </schema>
