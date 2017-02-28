@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax/JSON</title>
+	<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+	<style type="text/css">
+	 body{
+	 	font: 14px Arial;
+	 }
+
+
+	 table.persons , table.persons td{
+	 	border: 1px solid #999;
+	 	border-collapse: collapse;
+	 	padding: 3px;
+	 }
+
+	 table.persons tr:nth-child(odd){
+	 	background: #CCC;
+	 }
+	</style>
+</head>
+<body>
+	<button>GO</button>
+	<table id="mainTable" class="persons">
+		
+	</table>
+	<script type="text/javascript">
+		$("button").on('click',function () {
+			$.get('json.php',function(data){
+				var html="";
+				for(var i=0; i < data.length;i++){
+					var p= data[i];
+				html +="<tr>"+
+							"<td>"+p.fname+"</td>"+
+							"<td>"+p.lname+"</td>"+
+							"<td>"+p.address+"</td>"+
+						"</tr>";
+				};
+				$("#mainTable").html(html);
+			});
+		})
+	</script>
+</body>
+</html>
